@@ -40,8 +40,7 @@ export default {
 	},
 	mounted() {
 		window.addEventListener('keypress', (e) => {
-			// TODO: add removeeventlistener when this.isPlaying === true
-			if (e.key === ' ') {
+			if (this.isPlaying === false && e.key === ' ') {
 				this.start();
 			}
 		});
