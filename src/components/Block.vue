@@ -1,8 +1,8 @@
 <template>
 	<div class="backdrop">
 		<div id="be-ready" v-if="showBlock === false">Be ready</div>
-		<div class="block" v-if="showBlock" @click="stopTimer">
-			<div class="inside">
+		<div id="block" v-if="showBlock" @click="stopTimer">
+			<div>
 				Click!
 				<i class="small"><br />Shown after {{ delay }}ms</i>
 			</div>
@@ -48,10 +48,6 @@ export default {
 		if (this.showBlock === true) {
 			window.addEventListener('keypress', (e) => this.keyboard(e));
 		}
-		if (this.showBlock === false) {
-			console.log('this.showBlock changed to:', this.showBlock);
-			// TODO: remove event listener voor Enter
-		}
 	},
 };
 </script>
@@ -81,7 +77,6 @@ export default {
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 	animation-timing-function: ease-in-out;
-	/* opacity: 30%; */
 }
 @keyframes get-ready {
 	0% {
@@ -90,37 +85,30 @@ export default {
 	50% {
 		opacity: 20%;
 	}
-	100% {
-		opacity: 100%;
-	}
 }
 
-.block {
+#block {
 	width: 100vw;
 	height: 100vh;
-	background: red;
+	background: hsl(0, 100%, 50%);
 	color: white;
 	display: flex;
 	flex-wrap: wrap;
-	align-self: center;
+	align-items: center;
 	justify-content: center;
 	font-size: 8rem;
 	text-transform: uppercase;
 }
 @media screen and (max-width: 600px) {
-	.block {
+	#block {
 		font-size: 4rem;
 	}
-}
-
-.inside {
-	align-self: center;
 }
 
 .small {
 	font-size: 1rem;
 	width: 100%;
-	color: lightcoral;
+	color: hsl(0, 100%, 75%);
 	display: block;
 }
 </style>
