@@ -76,6 +76,8 @@ body {
 	height: 100vh;
 	justify-content: center;
 	flex-direction: column;
+	padding: 1rem;
+	box-sizing: border-box;
 }
 h1 {
 	margin-bottom: 2em;

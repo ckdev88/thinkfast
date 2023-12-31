@@ -66,6 +66,8 @@ export default {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
+	box-sizing: border-box;
+	padding: 1rem;
 }
 
 #be-ready {
@@ -102,8 +104,13 @@ export default {
 	flex-wrap: wrap;
 	align-self: center;
 	justify-content: center;
-	font-size: 9rem;
+	font-size: 8rem;
 	text-transform: uppercase;
+}
+@media screen and (max-width: 600px) {
+	.block {
+		font-size: 4rem;
+	}
 }
 
 .inside {
