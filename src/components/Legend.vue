@@ -13,9 +13,9 @@ export default {
 				pt: {
 					keyboard: 'Teclado',
 					space: 'espaço',
-					toreplay: 'que (jogar de novo)',
-					enter: 'entrar',
-					toreact: 'tempo de reação reagir',
+					toreplay: 'para (jogar de novo)',
+					enter: 'enter',
+					toreact: 'para reagir',
 				},
 			},
 			language: localStorage.getItem('language'),

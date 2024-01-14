@@ -21,8 +21,8 @@ export default {
 					again: 'again',
 				},
 				pt: {
-					title: 'Voce é rápido',
-					subtitle: 'clicar ou premir o mais rapidamente possível',
+					title: 'Você é rápido?',
+					subtitle: 'pressione qualquer tecla o mais rápido possível',
 					action: 'sim, vai',
 					again: 'de novo',
 				},
@@ -46,10 +46,13 @@ export default {
 	},
 	beforeCreate() {
 		if (!localStorage.getItem('language')) {
-			if (navigator.language.substring(0, 2) === 'pt') {
-				localStorage.setItem('language', 'pt');
-				document.title = 'Pensar rápido!';
-			} else localStorage.setItem('language', 'en');
+			localStorage.setItem('language', 'pt');
+			if (!localStorage.getItem('language')) {
+				if (navigator.language.substring(0, 2) === 'pt') {
+					localStorage.setItem('language', 'pt');
+					document.title = 'Pensar rápido!';
+				} else localStorage.setItem('language', 'en');
+			}
 		}
 	},
 	mounted() {

@@ -34,9 +34,9 @@ export default {
 					shownafter: 'Shown after ',
 				},
 				pt: {
-					beready: 'Pronto?',
+					beready: 'Preparado?',
 					click: 'clique!',
-					shownafter: 'mostrado apos',
+					shownafter: 'mostrado após',
 				},
 			},
 			language: localStorage.getItem('language'),
