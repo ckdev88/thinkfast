@@ -15,7 +15,7 @@ export default {
 					space: 'espa&ccedil;o',
 					toreplay: 'que (jogar de novo)',
 					enter: 'entrar',
-					toreact: 'tempo de rea&ccedil;&atilde; reagir',
+					toreact: 'tempo de reação reagir',
 				},
 			},
 			language: localStorage.getItem('language'),

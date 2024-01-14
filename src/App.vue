@@ -21,7 +21,7 @@ export default {
 					again: 'again',
 				},
 				pt: {
-					title: 'Voce &eacute; r&aacute;apido',
+					title: 'Voce é rápido',
 					subtitle: 'clicar ou premir o mais rapidamente possível',
 					action: 'sim, vai',
 					again: 'de novo',
@@ -62,7 +62,7 @@ export default {
 };
 </script>
 <template>
-	<img src="thinkfast-light.svg" id="logo" />
+	<img v-if="!isPlaying" src="thinkfast-light.svg" id="logo" />
 	<h1 :disabled="isPlaying || !isFirstTime">
 		{{ language === 'pt' ? text.pt.title : text.en.title }}
 		<em>{{ language === 'pt' ? text.pt.subtitle : text.en.subtitle }}</em>
@@ -156,7 +156,7 @@ h1 em {
 #logo {
 	width: 100px;
 	height: auto;
-	opacity: 0.4;
+	opacity: 0.3;
 	animation: logo-animation 4s infinite;
 }
 @keyframes logo-animation {
