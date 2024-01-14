@@ -12,10 +12,10 @@ export default {
 				},
 				pt: {
 					keyboard: 'Teclado',
-					space: 'espaco',
+					space: 'espa&ccedil;o',
 					toreplay: 'que (jogar de novo)',
 					enter: 'entrar',
-					toreact: 'pra reactar',
+					toreact: 'tempo de rea&ccedil;&atilde; reagir',
 				},
 			},
 			language: localStorage.getItem('language'),
@@ -25,9 +25,11 @@ export default {
 </script>
 <template>
 	<div>
-		{{ language === 'pt' ? text.pt.keyboard : text.en.keyboard }}: &lt;<span
-			class="lighter"
-			>{{ language === 'pt' ? text.pt.space : text.en.space }}</span
+		{{
+			language === 'pt' ? text.pt.keyboard : text.en.keyboard
+		}}:<br />&lt;<span class="lighter">{{
+			language === 'pt' ? text.pt.space : text.en.space
+		}}</span
 		>&gt; {{ language === 'pt' ? text.pt.toreplay : text.en.toreplay }},
 		&lt;<span class="lighter">{{
 			language === 'pt' ? text.pt.enter : text.en.enter

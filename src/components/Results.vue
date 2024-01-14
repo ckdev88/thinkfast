@@ -14,7 +14,7 @@ export default {
 			rank: null,
 			text: {
 				en: {
-					reactiontime: 'Reaction time: ',
+					reactiontime: 'Reaction time',
 					rank200: 'wow, not normal!',
 					rank250: 'pretty quick',
 					rank300: 'okay not bad',
@@ -23,13 +23,13 @@ export default {
 					rank600: "that's bad, try again",
 				},
 				pt: {
-					reactiontime: 'Seu velocidade: ',
+					reactiontime: 'Seu velocidade',
 					rank200: 'nao e normal em!',
-					rank250: 'rapido!',
+					rank250: 'raacute;pido!',
 					rank300: 'taa bom',
 					rank350: 'bem averagem',
-					rank500: 'entao',
-					rank600: 'despacito, prova de novo',
+					rank500: 'ent&atilde;o',
+					rank600: 'que lento, tente novamente',
 				},
 			},
 			language: localStorage.getItem('language'),

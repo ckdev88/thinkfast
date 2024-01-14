@@ -35,8 +35,8 @@ export default {
 				},
 				pt: {
 					beready: 'Pronto?',
-					click: 'cliqoue!',
-					shownafter: 'monstrou apos',
+					click: 'clique!',
+					shownafter: 'mostrado apos',
 				},
 			},
 			language: localStorage.getItem('language'),

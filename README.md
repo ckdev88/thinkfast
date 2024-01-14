@@ -1,1 +1,1 @@
-# Reaction timer, think fast!
+# Think fast! A reaction timer.

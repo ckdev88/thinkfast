@@ -15,15 +15,15 @@ export default {
 			showScore: false,
 			text: {
 				en: {
-					title: 'Reaction timer',
-					subtitle: 'BAM!',
+					title: 'THINK FAST',
+					subtitle: 'click or press as fast as possible',
 					action: 'Go',
 					again: 'again',
 				},
 				pt: {
-					title: 'Voce e rapido',
-					subtitle: 'Ne?',
-					action: 'Vai',
+					title: 'Voce &eacute; r&aacute;apido',
+					subtitle: 'clicar ou premir o mais rapidamente possível',
+					action: 'sim, vai',
 					again: 'de novo',
 				},
 			},
@@ -48,6 +48,7 @@ export default {
 		if (!localStorage.getItem('language')) {
 			if (navigator.language.substring(0, 2) === 'pt') {
 				localStorage.setItem('language', 'pt');
+				document.title = 'Pensar rápido!';
 			} else localStorage.setItem('language', 'en');
 		}
 	},
@@ -62,7 +63,7 @@ export default {
 </script>
 <template>
 	<h1 :disabled="isPlaying || !isFirstTime">
-		{{ language === 'pt' ? text.pt.title : text.en.title }},
+		{{ language === 'pt' ? text.pt.title : text.en.title }}
 		<em>{{ language === 'pt' ? text.pt.subtitle : text.en.subtitle }}</em>
 	</h1>
 	<Results v-if="showScore" :score="score" />
@@ -110,11 +111,11 @@ h1 {
 	margin-bottom: 2em;
 }
 button {
-	font-weight: 900;
+	font-weight: bold;
 	text-transform: uppercase;
-	padding: 0.3em 1.5em;
+	padding: 0.5em 1em;
 	font-size: 2.2rem;
-	border-radius: 0.3em;
+	border-radius: 3.5em;
 	cursor: pointer;
 	background-color: hsl(80, 61%, 80%);
 	transition:
@@ -144,5 +145,11 @@ button:hover {
 h1[disabled='true'],
 button:disabled {
 	display: none;
+}
+h1 em {
+	display: block;
+	font-style: italic;
+	font-size: 0.5em;
+	opacity: 0.6;
 }
 </style>
