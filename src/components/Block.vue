@@ -1,10 +1,19 @@
 <template>
 	<div class="backdrop">
-		<div id="be-ready" v-if="showBlock === false">Be ready</div>
+		<div id="be-ready" v-if="showBlock === false">
+			{{ language === 'pt' ? text.pt.beready : text.en.beready }}
+		</div>
 		<div id="block" v-if="showBlock" @click="stopTimer">
 			<div>
-				Click!
-				<i class="small"><br />Shown after {{ delay }}ms</i>
+				{{ language === 'pt' ? text.pt.click : text.en.click }}
+				<i class="small"
+					><br />{{
+						language === 'pt'
+							? text.pt.shownafter
+							: text.en.shownafter
+					}}
+					{{ delay }}ms</i
+				>
 			</div>
 		</div>
 	</div>
@@ -18,6 +27,19 @@ export default {
 			showBlock: ref(false),
 			timer: null,
 			reactionTime: 0,
+			text: {
+				en: {
+					beready: 'Be ready',
+					click: 'Click!',
+					shownafter: 'Shown after ',
+				},
+				pt: {
+					beready: 'Pronto?',
+					click: 'cliqoue!',
+					shownafter: 'monstrou apos',
+				},
+			},
+			language: localStorage.getItem('language'),
 		};
 	},
 	created() {

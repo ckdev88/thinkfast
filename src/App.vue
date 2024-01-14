@@ -1,12 +1,3 @@
-<template>
-	<h1 :disabled="isPlaying || !isFirstTime">Reaction timer, <em>BAM!</em></h1>
-	<Results v-if="showScore" :score="score" />
-	<button @click="start" :disabled="isPlaying || !isFirstTime">GO</button>
-	<button @click="start" :disabled="isFirstTime || isPlaying">again</button>
-	<Block v-if="isPlaying" :delay="delay" @end="endGame" />
-	<Legend v-if="!isPlaying" />
-</template>
-
 <script>
 import Block from './components/Block.vue';
 import Results from './components/Results.vue';
@@ -22,6 +13,21 @@ export default {
 			delay: null,
 			score: null,
 			showScore: false,
+			text: {
+				en: {
+					title: 'Reaction timer',
+					subtitle: 'BAM!',
+					action: 'Go',
+					again: 'again',
+				},
+				pt: {
+					title: 'Voce e rapido',
+					subtitle: 'Ne?',
+					action: 'Vai',
+					again: 'de novo',
+				},
+			},
+			language: localStorage.getItem('language'),
 		};
 	},
 	methods: {
@@ -38,6 +44,13 @@ export default {
 			this.showScore = true;
 		},
 	},
+	beforeCreate() {
+		if (!localStorage.getItem('language')) {
+			if (navigator.language.substring(0, 2) === 'pt') {
+				localStorage.setItem('language', 'pt');
+			} else localStorage.setItem('language', 'en');
+		}
+	},
 	mounted() {
 		window.addEventListener('keypress', (e) => {
 			if (this.isPlaying === false && e.key === ' ') {
@@ -47,6 +60,21 @@ export default {
 	},
 };
 </script>
+<template>
+	<h1 :disabled="isPlaying || !isFirstTime">
+		{{ language === 'pt' ? text.pt.title : text.en.title }},
+		<em>{{ language === 'pt' ? text.pt.subtitle : text.en.subtitle }}</em>
+	</h1>
+	<Results v-if="showScore" :score="score" />
+	<button @click="start" :disabled="isPlaying || !isFirstTime">
+		{{ language === 'pt' ? text.pt.action : text.en.action }}
+	</button>
+	<button @click="start" :disabled="isFirstTime || isPlaying">
+		{{ language === 'pt' ? text.pt.again : text.en.again }}
+	</button>
+	<Block v-if="isPlaying" :delay="delay" @end="endGame" />
+	<Legend v-if="!isPlaying" />
+</template>
 
 <style>
 body {
@@ -85,7 +113,6 @@ button {
 	font-weight: 900;
 	text-transform: uppercase;
 	padding: 0.3em 1.5em;
-	/* margin: 2em; */
 	font-size: 2.2rem;
 	border-radius: 0.3em;
 	cursor: pointer;
