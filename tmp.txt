@@ -1,6 +1,0 @@
-./dist/reaction-timer-inkscape.svg:   sodipodi:docname="reaction-timer-inkscape.svg"
-./dist/reaction-timer-inkscape.svg:   inkscape:export-filename="../../ckdev88.github.io/img/reaction-timer-logo.svg"
-./dist/reaction-timer.svg:   sodipodi:docname="reaction-timer.svg"
-./public/reaction-timer-inkscape.svg:   sodipodi:docname="reaction-timer-inkscape.svg"
-./public/reaction-timer-inkscape.svg:   inkscape:export-filename="../../ckdev88.github.io/img/reaction-timer-logo.svg"
-./public/reaction-timer.svg:   sodipodi:docname="reaction-timer.svg"
