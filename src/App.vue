@@ -62,6 +62,7 @@ export default {
 };
 </script>
 <template>
+	<img src="thinkfast-light.svg" id="logo" />
 	<h1 :disabled="isPlaying || !isFirstTime">
 		{{ language === 'pt' ? text.pt.title : text.en.title }}
 		<em>{{ language === 'pt' ? text.pt.subtitle : text.en.subtitle }}</em>
@@ -151,5 +152,19 @@ h1 em {
 	font-style: italic;
 	font-size: 0.5em;
 	opacity: 0.6;
+}
+#logo {
+	width: 100px;
+	height: auto;
+	opacity: 0.4;
+	animation: logo-animation 4s infinite;
+}
+@keyframes logo-animation {
+	0% {
+		opacity: 0.3;
+	}
+	50% {
+		opacity: 0.7;
+	}
 }
 </style>
