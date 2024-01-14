@@ -12,7 +12,7 @@ export default {
 				},
 				pt: {
 					keyboard: 'Teclado',
-					space: 'espa&ccedil;o',
+					space: 'espaço',
 					toreplay: 'que (jogar de novo)',
 					enter: 'entrar',
 					toreact: 'tempo de reação reagir',

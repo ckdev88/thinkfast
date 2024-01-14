@@ -28,7 +28,7 @@ export default {
 					rank250: 'rápido!',
 					rank300: 'taa bom',
 					rank350: 'bem averagem',
-					rank500: 'então',
+					rank500: 'então...',
 					rank600: 'que lento, tente novamente',
 				},
 			},
