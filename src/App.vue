@@ -46,13 +46,10 @@ export default {
 	},
 	beforeCreate() {
 		if (!localStorage.getItem('language')) {
-			localStorage.setItem('language', 'pt');
-			if (!localStorage.getItem('language')) {
-				if (navigator.language.substring(0, 2) === 'pt') {
-					localStorage.setItem('language', 'pt');
-					document.title = 'Pensar rápido!';
-				} else localStorage.setItem('language', 'en');
-			}
+			if (navigator.language.substring(0, 2) === 'pt') {
+				localStorage.setItem('language', 'pt');
+				document.title = 'Pensar rápido!';
+			} else localStorage.setItem('language', 'en');
 		}
 	},
 	mounted() {
