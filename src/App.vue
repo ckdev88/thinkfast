@@ -15,7 +15,7 @@ export default {
 			showScore: false,
 			text: {
 				en: {
-					title: 'THINK FAST',
+					title: 'Think fast',
 					subtitle: 'click or press as fast as possible',
 					action: 'Go',
 					again: 'again',
@@ -54,9 +54,7 @@ export default {
 	},
 	mounted() {
 		window.addEventListener('keypress', (e) => {
-			if (this.isPlaying === false && e.key === ' ') {
-				this.start();
-			}
+			if (this.isPlaying === false && e.key === ' ') this.start();
 		});
 	},
 };
