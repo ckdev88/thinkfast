@@ -100,7 +100,6 @@ export default {
 	color: rgba(255, 255, 255, 0.5);
 	text-align: center;
 	font-size: 3rem;
-	text-transform: lowercase;
 	margin: 0 auto;
 	animation-name: get-ready;
 	animation-duration: 2s;
