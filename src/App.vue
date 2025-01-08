@@ -1,7 +1,7 @@
 <script>
-import Block from './components/Block.vue';
-import Results from './components/Results.vue';
-import Legend from './components/Legend.vue';
+import Block from './components/Block.vue'
+import Results from './components/Results.vue'
+import Legend from './components/Legend.vue'
 
 export default {
 	name: 'App',
@@ -16,51 +16,54 @@ export default {
 			text: {
 				en: {
 					title: 'Think fast',
-					subtitle: 'Click anywhere or press ENTER as fast as possible.',
+					subtitle:
+						'Click anywhere or press ENTER as fast as possible.',
 					action: 'Go',
 					again: 'again',
 				},
 				pt: {
 					title: 'Você é rápido?',
 					action: 'sim, vai',
-					subtitle: 'Clique em qualquer lugar ou aperte Enter o mais rápido possível.',
+					subtitle:
+						'Clique em qualquer lugar ou aperte Enter o mais rápido possível.',
 					again: 'de novo',
 				},
 			},
 			language: localStorage.getItem('language'),
-		};
+		}
 	},
 	methods: {
 		start() {
-			this.delay = 2000 + Math.round(Math.random() * 5000); // somewhere between 2-7 seconds
-			this.isPlaying = true;
-			this.showScore = false;
-			this.isFirstTime = false;
+			this.delay = 2000 + Math.round(Math.random() * 5000) // somewhere between 2-7 seconds
+			this.isPlaying = true
+			this.showScore = false
+			this.isFirstTime = false
 		},
 		endGame(reactionTime) {
 			// catch 2nd argument (reactionTime) of emitted custom event 'end' from Block.vue
-			this.score = reactionTime;
-			this.isPlaying = false;
-			this.showScore = true;
+			this.score = reactionTime
+			this.isPlaying = false
+			this.showScore = true
 		},
 	},
 	beforeCreate() {
 		if (!localStorage.getItem('language')) {
 			if (navigator.language.substring(0, 2) === 'pt') {
-				localStorage.setItem('language', 'pt');
-				document.title = 'Pensar rápido!';
-			} else localStorage.setItem('language', 'en');
+				localStorage.setItem('language', 'pt')
+				document.title = 'Pensar rápido!'
+			} else localStorage.setItem('language', 'en')
 		}
 	},
 	mounted() {
 		window.addEventListener('keypress', (e) => {
-			if (this.isPlaying === false && e.key === ' ') this.start();
-		});
+			if (this.isPlaying === false && e.key === ' ') this.start()
+		})
 	},
-};
+}
 </script>
 <template>
-	<img v-if="!isPlaying" src="thinkfast-light.svg" id="logo" />
+	<!-- TODO use dynamic path for logo, for use within ckdev88.github.io -->
+	<img v-if="!isPlaying" src="/thinkfast/thinkfast-light.svg" id="logo" alt=""/>
 	<h1 :disabled="isPlaying || !isFirstTime">
 		{{ language === 'pt' ? text.pt.title : text.en.title }}
 		<em>{{ language === 'pt' ? text.pt.subtitle : text.en.subtitle }}</em>
@@ -82,17 +85,8 @@ body {
 	margin: 0;
 }
 #app {
-	font-family:
-		system-ui,
-		-apple-system,
-		BlinkMacSystemFont,
-		'Segoe UI',
-		Roboto,
-		Oxygen,
-		Ubuntu,
-		Cantarell,
-		'Open Sans',
-		'Helvetica Neue',
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -117,9 +111,7 @@ button {
 	border-radius: 3.5em;
 	cursor: pointer;
 	background-color: hsl(80, 61%, 80%);
-	transition:
-		background-color 0.5s ease-in-out,
-		border-color 0.2s ease-in-out;
+	transition: background-color 0.5s ease-in-out, border-color 0.2s ease-in-out;
 	display: inline-block;
 	width: auto;
 	margin-left: auto;
