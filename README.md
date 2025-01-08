@@ -2,6 +2,6 @@
 
 Lean and simple, made in vue.
 
-##For keyboard use:
+## For keyboard use:
 Space: start or restart
 Enter: react
