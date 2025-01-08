@@ -60,7 +60,8 @@ export default {
 };
 </script>
 <template>
-	<img v-if="!isPlaying" src="thinkfast-light.svg" id="logo" />
+	<!-- TODO use dynamic path for logo, for use within ckdev88.github.io -->
+	<img v-if="!isPlaying" src="/thinkfast/thinkfast-light.svg" id="logo" alt=""/>
 	<h1 :disabled="isPlaying || !isFirstTime">
 		{{ language === 'pt' ? text.pt.title : text.en.title }}
 		<em>{{ language === 'pt' ? text.pt.subtitle : text.en.subtitle }}</em>
