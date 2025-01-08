@@ -36,6 +36,7 @@ export default {
 		}}</span
 		>&gt; {{ language === 'pt' ? text.pt.toreact : text.en.toreact }}
 	</div>
+	<!-- add history if there is one -->
 </template>
 
 <style scoped>
