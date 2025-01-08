@@ -16,14 +16,14 @@ export default {
 			text: {
 				en: {
 					title: 'Think fast',
-					subtitle: 'click or press as fast as possible',
+					subtitle: 'Click anywhere or press ENTER as fast as possible.',
 					action: 'Go',
 					again: 'again',
 				},
 				pt: {
 					title: 'Você é rápido?',
-					subtitle: 'pressione qualquer tecla o mais rápido possível',
 					action: 'sim, vai',
+					subtitle: 'Clique em qualquer lugar ou aperte Enter o mais rápido possível.',
 					again: 'de novo',
 				},
 			},

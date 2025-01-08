@@ -41,7 +41,7 @@ export default {
 				},
 				pt: {
 					beready: 'Preparado?',
-					bereadysub: 'clique ou aperte ENTER em breve...',
+					bereadysub: 'Clique em qualquer lugar ou aperte ENTER em breve...',
 					click: 'clique!',
 					shownafter: 'mostrado após',
 				},
