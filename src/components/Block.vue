@@ -2,6 +2,11 @@
 	<div class="backdrop">
 		<div id="be-ready" v-if="showBlock === false">
 			{{ language === 'pt' ? text.pt.beready : text.en.beready }}
+			<div class="subtext">
+				{{
+					language === 'pt' ? text.pt.bereadysub : text.en.bereadysub
+				}}
+			</div>
 		</div>
 		<div id="block" v-if="showBlock" @click="stopTimer">
 			<div>
@@ -30,11 +35,13 @@ export default {
 			text: {
 				en: {
 					beready: 'Be ready',
+					bereadysub: 'Click anywhere or press ENTER soon...',
 					click: 'Click!',
 					shownafter: 'Shown after ',
 				},
 				pt: {
 					beready: 'Preparado?',
+					bereadysub: 'clique ou aperte ENTER em breve...',
 					click: 'clique!',
 					shownafter: 'mostrado após',
 				},
@@ -99,6 +106,9 @@ export default {
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 	animation-timing-function: ease-in-out;
+}
+#be-ready .subtext {
+	font-size: 0.35em;
 }
 @keyframes get-ready {
 	0% {
