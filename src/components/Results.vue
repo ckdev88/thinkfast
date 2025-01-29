@@ -4,11 +4,15 @@
 		{{ score }}ms
 	</p>
 	<p class="bigger">{{ rank }}</p>
+	<p>
+		{{ language === 'pt' ? text.pt.topscore : text.en.topscore }}:
+		{{ topscore }}ms
+	</p>
 </template>
 
 <script>
 export default {
-	props: ['score'],
+	props: ['score', 'topscore'],
 	data() {
 		return {
 			rank: null,
@@ -21,6 +25,7 @@ export default {
 					rank350: 'bit average',
 					rank500: 'meh',
 					rank600: "that's bad, try again",
+					topscore: 'Top score so far',
 				},
 				pt: {
 					reactiontime: 'Sua velocidade',
@@ -30,33 +35,34 @@ export default {
 					rank350: 'foi mais ou menos, tenta de novo',
 					rank500: 'dá para melhorar',
 					rank600: 'muito devagar, tenta de novo',
+					topscore: 'Melhores score',
 				},
 			},
 			language: localStorage.getItem('language'),
-		};
+		}
 	},
 	mounted() {
 		if (this.score < 200) {
-			if (this.language === 'pt') this.rank = this.text.pt.rank200;
-			else this.rank = this.text.en.rank200;
+			if (this.language === 'pt') this.rank = this.text.pt.rank200
+			else this.rank = this.text.en.rank200
 		} else if (this.score < 250) {
-			if (this.language === 'pt') this.rank = this.text.pt.rank250;
-			else this.rank = this.text.en.rank250;
+			if (this.language === 'pt') this.rank = this.text.pt.rank250
+			else this.rank = this.text.en.rank250
 		} else if (this.score < 300)
-			if (this.language === 'pt') this.rank = this.text.pt.rank300;
-			else this.rank = this.text.en.rank300;
+			if (this.language === 'pt') this.rank = this.text.pt.rank300
+			else this.rank = this.text.en.rank300
 		else if (this.score < 350) {
-			if (this.language === 'pt') this.rank = this.text.pt.rank350;
-			else this.rank = this.text.en.rank350;
+			if (this.language === 'pt') this.rank = this.text.pt.rank350
+			else this.rank = this.text.en.rank350
 		} else if (this.score < 500) {
-			if (this.language === 'pt') this.rank = this.text.pt.rank500;
-			else this.rank = this.text.en.rank500;
+			if (this.language === 'pt') this.rank = this.text.pt.rank500
+			else this.rank = this.text.en.rank500
 		} else {
-			if (this.language === 'pt') this.rank = this.text.pt.rank600;
-			else this.rank = this.text.en.rank600;
+			if (this.language === 'pt') this.rank = this.text.pt.rank600
+			else this.rank = this.text.en.rank600
 		}
 	},
-};
+}
 </script>
 
 <style>

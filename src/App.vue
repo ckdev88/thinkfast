@@ -6,12 +6,13 @@ import Legend from './components/Legend.vue'
 export default {
 	name: 'App',
 	components: { Block, Results, Legend },
-	data() {
+	data: () => {
 		return {
 			isPlaying: false,
 			isFirstTime: true,
 			delay: null,
-			score: null,
+			score: 0,
+			topscore: 0,
 			showScore: false,
 			text: {
 				en: {
@@ -29,7 +30,7 @@ export default {
 					again: 'de novo',
 				},
 			},
-			language: localStorage.getItem('language'),
+			language: localStorage.getItem('language').toString(),
 		}
 	},
 	methods: {
@@ -42,6 +43,8 @@ export default {
 		endGame(reactionTime) {
 			// catch 2nd argument (reactionTime) of emitted custom event 'end' from Block.vue
 			this.score = reactionTime
+			if (this.score < this.topscore || this.topscore === 0)
+				this.topscore = this.score
 			this.isPlaying = false
 			this.showScore = true
 		},
@@ -63,12 +66,17 @@ export default {
 </script>
 <template>
 	<!-- TODO use dynamic path for logo, for use within ckdev88.github.io -->
-	<img v-if="!isPlaying" src="/thinkfast/thinkfast-light.svg" id="logo" alt=""/>
+	<img
+		v-if="!isPlaying"
+		src="/thinkfast/thinkfast-light.svg"
+		id="logo"
+		alt=""
+	/>
 	<h1 :disabled="isPlaying || !isFirstTime">
 		{{ language === 'pt' ? text.pt.title : text.en.title }}
 		<em>{{ language === 'pt' ? text.pt.subtitle : text.en.subtitle }}</em>
 	</h1>
-	<Results v-if="showScore" :score="score" />
+	<Results v-if="showScore" :score="score" :topscore="topscore" />
 	<button @click="start" :disabled="isPlaying || !isFirstTime">
 		{{ language === 'pt' ? text.pt.action : text.en.action }}
 	</button>
